@@ -1,0 +1,46 @@
+\section{Turing Machine and RAM}
+
+\subsection{Turing Machine}
+
+\key{Turing Machine} $M=\langle
+Q,\Sigma,\Gamma,\delta,q_0,B,q_{accept},q_{reject}\rangle$
+
+\key{TM-acceptable} A language $L, L \subseteq \Sigma^*$, is
+Turing-machine-acceptable if there is a Turing machine
+that accepts L.
+
+\key{TM-decidable} A language L is Turing-machine-decidable if L is accepted by
+some
+Turing machine that halts on every input.
+
+\key{$L(M)$} $L(M)=\{w \in \Sigma^* | M \text{ accepts } w \}$.
+
+\key{$M$ computes $\phi$} $M$ eventually enter an accepting configuration of
+$\phi(w_1,\ldots,w_n)q_{accept}$ iff.
+$\phi(w_1,\ldots,w_n)\downarrow$.
+
+\key{Partial Computable} A partial function $\phi$ is partial computable if there
+is some Turing machine
+that computes it.
+
+\key{Total Computable} $\phi(w_1,\ldots,w_n)\downarrow$ for all
+$w_1,\ldots,w_n$. If $M$ computes a total computable function, $L(M)=\Sigma^*$.
+
+\key{Theorem 2.2.} A language $L$ is decidable if and only if both $L$ and
+$\bar{L}$ are acceptable.\\
+Parallel simulation.
+
+\key{RAM}
+\begin{table}[H]
+  \begin{tabular}{lll}
+    $1_j$ & $X\;\mathbf{add}_j\;Y$ & append $a_j$ to $Y$\\
+    $2$ & $X\;\mathbf{del}\;Y$ & delete right most symbol of $Y$\\
+    $3$ & $X\;\mathbf{clr}\;Y$ & $Y \rightarrow \lambda$\\
+    $4$ & $X\;Y\leftarrow Z$ & $Y=Z$\\
+    $5$ & $X\;\mathbf{jmp}\;Y$\\
+    $6_j$ & $X\;Y\;\mathbf{jmp}_j\;X'$\\
+    $7$ & $X\;\mathbf{continue}$
+  \end{tabular}
+\end{table}
+
+

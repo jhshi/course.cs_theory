@@ -1,0 +1,88 @@
+\documentclass{article}
+
+% hide the (ugly) borders of links
+\usepackage[hidelinks]{hyperref}
+
+% no indentation at paragraph, use line break instead
+\usepackage[parfill]{parskip}
+
+% math package
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+\usepackage{float}
+
+% custom headers and footers
+\usepackage{fancyhdr}
+
+% count page number
+\usepackage{lastpage}
+
+% multicolumn
+\usepackage{multicol}
+
+% customized margin
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\usepackage{algorithm2e}
+
+% personal info
+\newcommand{\id}{Person \texttt{\#}: \texttt{5009 4218}}
+\newcommand{\email}{\href{mailto:jinghaos@buffalo.edu}{jinghaos@buffalo.edu}}
+\newcommand{\name}{Jinghao Shi}
+
+% cover page
+\newcommand{\makecoverpage}{
+\maketitle
+\thispagestyle{empty}
+\newpage
+% for double side printing, leave backside of cover page blank
+\begin{center}
+  \vspace*{\fill}
+  \LARGE{\textit{This page intentionally left blank.}}
+  \vspace*{\fill}
+\end{center}
+\thispagestyle{empty}
+\newpage
+% reset page number counter
+\setcounter{page}{1}
+}
+
+\newcommand{\problem}[1]{\textbf{Problem.}\quad #1}
+\newcommand{\solution}[1]{\textbf{Solution.}\quad #1}
+\newcommand{\key}[1]{\textbf{#1}\quad}
+
+\title{\vspace{2in}
+CSE596: Introduction to the Theory of Computation \\
+\vspace{0.5in}
+Glossary\\
+\vspace{3in}
+}
+
+\author{
+\name\\
+\email\\
+\id
+}
+
+% header and footer
+\pagestyle{fancy}
+\lhead{\id}
+\chead{\name}
+\rhead{\email}
+\cfoot{\thepage ~/ \pageref{LastPage}}
+\renewcommand{\headrulewidth}{1pt}
+
+\begin{document}
+\makecoverpage
+
+\include{chap1}
+\include{chap2}
+\include{chap3}
+\include{chap4}
+\include{chap5}
+\include{chap6}
+
+\end{document}

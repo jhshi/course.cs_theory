@@ -1,0 +1,38 @@
+\section{Introduction to Complexity Theory}
+
+\subsection{Complexity Classes and Complexity Measures}
+
+\key{Online TM} An online Turing machine is a multitape Turing machine whose input is written on one
+of the work tapes, which can be rewritten and used as an ordinary work tape.
+
+\key{Time-bounded} $M$ is a $T(n)$ time-bounded Turing machine if for every 
+input of length $n$, $M$ makes at most $T(n)$ moves before halting. 
+
+\key{$DTIME(T(n))$} to be the set of all languages having time complexity
+$T(n)$.
+
+\key{$NTIME(T(n))$} to be the set of all languages accepted by nondeterministic
+$T(n)$ time-bounded Turing machines.
+
+\key{Offline TM} An off-line Turing machine is a multitape Turing machine with a separate
+read-only input tape. The Turing machine can read the input but cannot write over the
+input.
+
+\key{Space-bounded} $M$ is an $S(n)$ space-bounded Turing machine if, for
+every word of length $n$, $M$ scans at most $S(n)$ cells over all storage tapes.
+
+\key{Complexity classes}
+\begin{enumerate}
+  \item $\text{L} = \text{DSPACE}(log(n))$
+  \item $\text{NL} = \text{NSPACE}(log(n))$
+  \item $\text{POLYLOGSPACE} = \cup \{\text{DSPACE}((logn)^k) | k \ge 1\}$
+  \item $\text{DLBA} = \cup \{\text{DSPACE}(kn) | k \ge 1\}$
+  \item $\text{LBA} = \cup \{\text{NSPACE}(kn) | k \ge1\}$
+  \item $\text{P =} \cup \{\text{DTIME}(n^k) | k \ge 1\}$
+  \item $\text{NP} = \cup \{\text{NTIME}(n^k) | k \ge1\}$
+  \item $\text{E =} \cup \{\text{DTIME}(k^n) | k \ge 1\}$
+  \item $\text{NE} = \cup \{\text{NTIME}(k^n) | k \ge 1\}$
+  \item $\text{PSPACE} = \cup \{\text{DSPACE}(n^k) | k \ge 1\}$
+  \item $\text{EXP} = \cup \{\text{DTIME}(2^{p(n)}) | p \text{ is a polynomial}\}$
+  \item $\text{NEXP} = \cup \{\text{NTIME}(2^{p(n)}) | p \text{ is a polynomial}\}$
+\end{enumerate}

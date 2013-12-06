@@ -1,0 +1,264 @@
+\section{Undecidability}
+
+\subsection{Undecidable Problems}
+
+\key{Characteristic Function} 
+$f_{S}(x) = \begin{cases}
+  0 & \text{if } x \in S \\ 
+  1 & \text{if } x \notin S
+\end{cases}$
+
+\key{$w_M$} The word that encodes $M$.
+
+\key{G\"odel Number $e$} The code for a Turing machine $M$.
+
+\key{$\phi_e=\lambda x.U(e,x).$} $\phi_e$ is the partial function of one
+argument that is computed by $M_e$.
+
+\key{Theorem 3.1.} The Program Termination problem (Example 3.2) is undecidable.
+There is no algorithm to determine whether an arbitrary partial computable
+function is total. Thus, there is no algorithm to determine whether a Turing
+machine
+halts on every input.\\
+Define
+\begin{align*}
+  \text{TEST}(i) = 
+  \begin{cases}
+    \text{``yes''} & \text{ if } \phi_i \text{ halts on every input.} \\
+    \text{``no''} & \text{ otherwise}
+  \end{cases}
+\end{align*}
+
+\begin{align*}
+  \delta(k) =
+  \begin{cases}
+    \phi_k(k)+1 & \text{ if TEST(i)="yes"} \\
+    0 & \text{ if TEST(k)="no"}
+  \end{cases}
+\end{align*}
+Thus $\delta$ is total computable. Let $\delta=\phi_e$, then TEST(e) is ``yes''.
+$\delta(e)=\phi_e(e)+1 \neq \phi_e(e)$.
+
+\subsection{Pairing Functions}
+\key{Paring function} Computable one-to-one mapping $<,>:N \times N \rightarrow
+N$, whose inverse $\tau_1(<x,y>)=x$ and $\tau_2(<x,y>)=y$ are also computable.\\
+Example, $<x,y>=\frac{1}{2}(x^2+2xy+y^2+3x+1)$.
+
+
+\subsection{Computably Enumerable Sets}
+\key{Computable enumerable (c.e.)} A set $S$ is c.e. if $S=\emptyset$ or
+$S=range(f)$ in which $f$ is a total computable function.
+
+\key{index set} Let $\mathscr{C}$ be any set of partial computable functions,
+then $P(\mathscr{C})=\{e|\phi_e \in \mathscr{C}\}$ is called index set.
+
+\key{Homework 3.3} $A=\{(e,j)|L(M_e) = L(M_j)\}$ is not decidable.\\
+Suppose by contradiction that $A$ is decidable, let $L(M_j)=\Sigma^*$, then
+$\{e|L(M_e)=\Sigma^*\}=\{e|\phi_e \text{ is total computable}\}$ is decidable,
+this contradicts \textbf{Theorem 3.1}.
+
+\key{Theorem 3.2.} $\{e | \phi_e is \text{ total computable}\}$ is not
+computably enumerable.\\
+Let $S=\{e|\phi_e \text{ is total computable}\}$ and suppose for contradiction
+that $S$ is c.e., then $S=range(g)$ for some total computable function $g$.
+Define $U_S(e,x)=\phi_{g(e)}(x)$ and $h(x)=U_S(x,x)+1$, so $\exists k \in S
+\text{ s.t. } h=\phi_k$ and $\exists e \text{ s.t. } k=g(e)$.
+Finally,
+\begin{align*}
+  \phi_k(e)&=h(e)\\
+  &=U_S(e,e)+1 \\
+  &=\phi_{g(e)}(e)+1\\
+  &=\phi_k(e)+1
+\end{align*}
+
+\key{Theorem 3.3.} A set $S$ is computably enumerable if and only if there is a
+decidable
+relation $R(x, y)$ such that
+\begin{align*}
+x \in S \Leftrightarrow \exists y R(x, y).
+\end{align*}
+
+\key{Theorem 3.4.} A set $S$ is computably enumerable if and only if it is
+Turing-machine-
+acceptable.
+
+\key{Corollary 3.1.} A set $S$ is decidable if and only if $S$ and $\bar{S}$ are both
+computably
+enumerable.
+
+\key{Corollary 3.2.} A set $S$ is computably enumerable if and only if $S$ is the
+domain of
+some partial computable function.
+
+\key{Homework 3.4} Prove that an infinite set is decidable if and only if it can
+be
+enumerated in increasing order by a one-to-one total computable function.
+
+\key{Homework 3.6} Prove that every infinite c.e. set contains an infinite
+decidable subset.
+\begin{align*}
+  h(0) &= f(0)\\
+  h(n+1) &= f(min\{x|f(x) \notin \{h(0), h(1),\ldots, h(n)\}\})
+\end{align*}
+
+\key{$W_e=dom(\phi_e)$}
+
+\subsection{Complete Set}
+
+\key{Diagonal Set} $K=\{x|\phi_x(x)\downarrow\}=\{x|U(x,x)\downarrow\}$=\{TM
+that accepts its own code.\}. Since $\lambda x.U(x,x)$ is partial computable,
+$K$ is c.e.. However, $K$ is not decidable, in particular, $\bar{K}$ is not
+c.e.\\
+Suppose $\bar{K} = W_e = dom(\phi_e)$, then $e \in \bar{K} \Leftrightarrow
+\phi_e(e)\downarrow \Leftrightarrow e \in K$.
+
+\key{Many-one reducible} $A \le_m B$ if there is a total computable function
+s.t. $x \in A \Leftrightarrow f(x) \in B$
+
+\key{Lemma 3.2.} 1. If $A \le_m B$ and $B$ is c.e., then $A$ is c.e.\\
+2. If $A \le_m B$ and $B$ is decidable, then $A$ is decidable.
+
+\key{Theorem 3.6.} The Halting problem is undecidable. Specifically, the set
+$L_U=\{(e,w)|M_e \text{ accepts } w\}$ is not decidable.\\
+$x \in K \Leftrightarrow (x,x) \in L_U$, $x \mapsto (x,x)$ is total, so $K \le_m
+L_U$.
+
+\subsubsection{Complete Problems}
+\key{Many-one complete} $L$ is many-one complete if
+\begin{enumerate}
+  \item $L$ is c.e.
+  \item For every c.e. set $A$, $A \le_m L$
+\end{enumerate}
+
+\key{Homework 3.8} Show that $K$ is a many-one complete set. Note that it suffices
+to show that $L_U \le_m K$.\\
+Need to show $(e,w) \in L_U \Leftrightarrow f((e,w)) \in K$ for some total
+computable function $f$. Define $f((e,w)) = e'$ where $M_e'$ is defined as
+follows.\\
+\begin{algorithm}[H]
+  on input x\;
+  \uIf{$M_e$ accepts $w$}{
+    ACCEPT\;
+  }
+  \Else{
+    REJECT\;
+  }
+\end{algorithm}
+Then we have
+\begin{align*}
+  (e,w) \in L_U & \Leftrightarrow L(M_e')=\Sigma^*\\
+  & \Leftrightarrow e' \in L(M_e')\\
+  & \Leftrightarrow e' \in K
+\end{align*}
+
+\subsection{S-m-n Theorem}
+
+\key{Corollary 3.3.} For every partial computable function $\lambda x.\Psi(e,x)$,
+there is a total computable function $f$ so that $\phi_{f(e)}(x) = \Psi(e,x).$
+
+\key{Theorem 3.9.} There is a total computable function $f$ such that
+$range \phi_{f(e)} = dom \phi_e$.\\
+Define 
+\begin{align*}
+  \Psi(e,x)=
+  \begin{cases}
+    x & \text{ if } x \in dom\phi_e\\
+    \uparrow & \text{ otherwise.}
+  \end{cases}
+\end{align*}
+So $range(\lambda x.\Psi(e,x)) = dom\phi_e$, and $\phi_{f(e)}=\Psi(e,x)$, so
+$range(\phi_{f(e)}) = dom\phi_e$.
+
+\key{Homework 3.9} Prove that there is a total computable function $g$ such that
+$dom\phi_{g(e)} = range\phi_e$.\\
+Define
+\begin{align*}
+  \Psi(e,x)=
+  \begin{cases}
+    1 & \text{ if } x \in range\phi_e\\
+    \uparrow & \text{ otherwise.}
+  \end{cases}
+\end{align*}
+So $range(\Psi(e,x)) = range(\phi_{g(e)}(x) = range(\phi_e)$
+
+\subsection{Recursion Theorem}
+
+\key{Theorem 3.10.} For every total computable function $f$ there is a number
+$n$
+such that $\phi_n = \phi_{f(n)}$. A number $n$ with this property is called a
+fixed point of $f$ .
+
+\key{Corollary 3.5.} There is a number (i.e., program) $n$ such that $\phi_n$ is the
+constant function with output $n$.\\
+Define $\Psi(e,x)=e$, then $\Psi(e,x)=\phi_{f(e)}(x)=\phi_e(x) = e$.
+
+\key{$W_n=\{n\}$} Define
+\begin{align*}
+  \Psi(e,x)=
+  \begin{cases}
+    e & \text{ if } x = e \\
+    \uparrow & \text{ otherwise}
+  \end{cases}
+\end{align*}
+$\Psi(e,x)=\phi_{f(e)}(x)=\phi_e(x)$, $dom\phi_e = \{e\}$
+
+\key{$W_n=\{n^2\}$} Define
+\begin{align*}
+  \Psi(e,x)=
+  \begin{cases}
+    e & \text{ if } x = e^2 \\
+    \uparrow & \text{ otherwise}
+  \end{cases}
+\end{align*}
+$\Psi(e,x)=\phi_{f(e)}(x)=\phi_e(x)$, $dom\phi_e = \{e^2\}$
+
+\key{Homework 3.11} Show that there is no algorithm that given as input a Turing 
+machine $M$, where $M$ defines a partial function of one variable, outputs
+a Turing machine $M'$ such that $M'$ defines a different partial function of one
+variable.\\
+Suppose for contradiction that such $\exists f \forall n \phi_n \ne
+\phi_{f(n)}$, and $f$ is total.
+
+
+\subsection{Rice's Theorem}
+
+\key{Theorem 3.12.} An index set $P_{\mathscr{C}}$ is decidable if and only if
+$P_{\mathscr{C}} = 0$ or $P_{\mathscr{C}}= N$.\\
+Suppose $P_{\mathscr{C}} \neq \emptyset$ and $P_{\mathscr{C}} \neq N$, let 
+$j \in P_{\mathscr{C}}$ and $k \notin P_{\mathscr{C}}$, define
+\begin{align*}
+  f(x) = 
+  \begin{cases}
+    k & \text{ if } x \in P_{\mathscr{C}} \\
+    j & \text{ if } x \notin P_{\mathscr{C}}
+  \end{cases}
+\end{align*}
+Suppose for contradiction that $P_{\mathscr{C}}$ is decidable, then $f$ is
+total, then $f$ has a fixed point $n$ such that $\phi_n = \phi_{f(n)}$. Since $n$
+and $f(n)$ is the code for same partial functions, either they both belong to
+$P_{\mathscr{C}}$ or both belong to $\overline{P_{\mathscr{C}}}$, but 
+$x \in P_{\mathscr{C}} \Leftrightarrow f(x) \notin P_{\mathscr{C}}$.
+
+\subsection{Turing Reductions and Oracle Turing Machines}
+
+\key{$M^A$} an oracle TM with $A$ as its oracle.
+
+\key{Definition 3.5.} $A$ is decidable in $B$ if $A = L(M^B)$, where $M^B$ halts on
+every input.
+
+\key{Definition 3.6.} $A$ is Turing-reducible to B if and only if A is decidable in
+B. In notation: $A \le_T B$.
+
+\key{Homework 3.13} Prove each of the following properties:\\
+1. $\le_T$ is transitive;\\
+2. $\le_T$ is reflexive;\\
+3. For all sets $A$, $A \le_T \bar{A}$;\\
+4. If $B$ is decidable and $A \le_T B$, then $A$ is decidable; \\
+5. If $A$ is decidable, then $A \le_T B$ for all sets $B$;\\
+6. $A \le_m B \Rightarrow A \le_T B$;\\
+7. $\exists A, B[A \le_T B \text{ and } A \nleq_m B]$;\\
+$\bar{K} \le_T K$ but $\bar{K} \nleq_m K$.\\
+8. $\exists A, B[A \le_T B$ and $B$ is c.e. and $A$ is not c.e.].
+$\bar{K} \le_T K$, $K$ is c.e., $\bar{K}$ is not c.e.
+
+

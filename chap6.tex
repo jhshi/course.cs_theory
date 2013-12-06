@@ -1,0 +1,35 @@
+\section{Nondeterminism and NP-Completeness}
+
+\subsection{Characterizing NP}
+
+\key{Theorem 6.1.} A set $A$ belongs to NP if and only if there exist a polynomial
+$p$ and a binary relation $R$ that is decidable in polynomial time such that for all words
+in $\Sigma^*$,
+$x \in A \Leftrightarrow \exists y [|y| \le p(|x|) \land R(x, y)]$.
+
+\key{Verifier} Define a verifier for a language $A$ to be an algorithm $V$ such that
+$A = \{x |\exists y[V \text{ accepts } \langle x, y \rangle ]\}$.
+
+\key{Corollary 6.1.} NP is the class of all languages A having a polynomial-time
+verifier.
+
+\subsection{The Class P}
+
+\subsection{Enumerations}
+
+\key{Definition 6.1.} A class of sets $\mathscr{C}$ is effectively presentable if there is an
+effective enumeration $\{M_i\}_i$ of Turing machines such that every Turing machine in the
+enumeration halts on all inputs and $\mathscr{C} = \{L(M_i) | i \ge 0\}$.
+
+\key{Theorem 6.2.} There is no effective enumeration of the class of all
+deterministic Turing machines that operate in polynomial time. That is,
+$S = \{i | \text{DM}_i \text{operates in polynomial time}\}$
+is not a computably enumerable set.
+
+\key{Theorem 6.3.} P and NP are effectively presentable:\\
+NP = \{L(NP$_i) | i \ge 0\}$;\\
+P = \{L(P$_i) | i \ge 0\}$;
+
+\subsection{NP-Completeness}
+
+
