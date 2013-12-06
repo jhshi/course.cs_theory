@@ -32,4 +32,22 @@ P = \{L(P$_i) | i \ge 0\}$;
 
 \subsection{NP-Completeness}
 
+\key{Definition 6.2.} A set $A$ is many-one reducible in polynomial time to a
+set $B$
+(notation: $A \le^P_m B$) if there exists a function $f$ that is computable
+in polynomial time so that $x \in A \Leftrightarrow f(x) \in B$.
 
+\key{Theorem 6.4.} NP $\ne$ E.
+
+\key{Definition 6.3.} A set $A$ is $\le^P_m$-complete for NP (commonly
+called NP-complete) if
+\begin{enumerate}
+  \item A $\in$ NP;
+  \item for every set L $\in$ NP, L $\le^P_m$ A.
+\end{enumerate}
+
+\key{Theorem 6.5.} If $A$ is NP-complete, then $A \in P$ if and only if P =
+NP.
+
+\key{Universal set for NP} $\mathscr{U} = \{\langle i, x, 0^n \rangle |$ some
+computation of NP$_i$ accepts $x$ in fewer than $n$ steps\}
