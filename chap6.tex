@@ -51,3 +51,53 @@ NP.
 
 \key{Universal set for NP} $\mathscr{U} = \{\langle i, x, 0^n \rangle |$ some
 computation of NP$_i$ accepts $x$ in fewer than $n$ steps\}
+
+\key{Theorem 6.6.} $\mathscr{U}$ is NP-complete.\\
+For each $S\ in$ NP, there is some $i$ such
+that $S = L(\text{NP}_i)$. Given $S = L(\text{NP}_i)$, define $f$ so that for
+every word $x$, $f(x) = \langle i, x, 0^{p_i(|x|)} \rangle$. Then we have
+\begin{align*}
+  x \in S &\Leftrightarrow \text{NP}_i \text{accepts } x \\
+  &\Leftrightarrow \text{NP}_i \text{accepts } x \text{ in } p_i(|x|) \text{ steps}\\
+  &\Leftrightarrow \langle i, x, 0^{p_i(|x|)} \rangle \in \mathscr{U}\\
+  &\Leftrightarrow f(x) \in \mathscr{U}
+\end{align*}
+
+\subsection{The Cook-Levin Theorem}
+
+\key{Theorem 6.7.} SAT belongs to NP.
+
+\key{Theorem 6.8.} CNF-SAT is an NP-complete problem.
+
+\subsection{More NP-Complete Problems}
+
+\key{Proposition 6.1.} If A is NP-complete, $A \le_m^P B$, and $B \in$ NP, then B is NP-complete.
+
+\key{Corollary 6.2.} SAT is NP-complete.
+
+\subsubsection{The Diagonal Set Is NP-Complete}
+
+\key{$K$} $K = \{i | \text{NP}_i \text{ accepts } i \text{ within } |i| \text{
+steps}\}$.
+
+\subsubsection{Some Natural NP-Complete Problems}
+
+\key{Theorem 6.10.} 3SAT is NP-complete.
+
+\key{Vertex cover} A vertex cover of a graph $G = (V, E)$ is a subset $V'$ of
+$V$ that, for each edge $(u, v) \in E$, contains at least one of the
+adjacent vertices $u$ and $v$.
+
+\key{VERTEX COVER}\\
+\textbf{instance} A graph $G = (V, E)$ and a positive integer $k \le ||V||$ .\\
+\textbf{question} Is there a vertex cover of size $\le k$ for $G$?
+
+\key{Theorem 6.11.} VERTEX COVER is NP-complete.
+
+\key{Clique} A complete subgraph of G
+
+\key{CLIQUE} \\
+\textbf{instance} A graph $G = (V, E)$ and a positive integer $j \le ||V||$ .\\
+\textbf{question} Does $G$ contain a clique of size $j$ or more?
+
+\key{Theorem 6.12.} CLIQUE is NP-complete.
