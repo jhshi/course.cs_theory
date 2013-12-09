@@ -28,6 +28,9 @@
 
 \usepackage{algorithm2e}
 
+\usepackage{graphicx}
+\graphicspath{ {figs/} }
+
 % personal info
 \newcommand{\id}{Person \texttt{\#}: \texttt{5009 4218}}
 \newcommand{\email}{\href{mailto:jinghaos@buffalo.edu}{jinghaos@buffalo.edu}}
@@ -64,14 +67,13 @@ Glossary\\
 \author{
 \name\\
 \email\\
-\id
 }
 
 % header and footer
 \pagestyle{fancy}
-\lhead{\id}
-\chead{\name}
-\rhead{\email}
+\lhead{\leftmark}
+\rhead{CSE596 Glossary}
+%\rhead{\name\\\email}
 \cfoot{\thepage ~/ \pageref{LastPage}}
 \renewcommand{\headrulewidth}{1pt}
 

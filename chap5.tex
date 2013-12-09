@@ -78,6 +78,9 @@ DTIME($f$) $\in$ DSPACE($f$) and NTIME($f$) $\in$ NSPACE($f$)
 $S(n) \ge log n$, then $L$ is accepted by an $S(n)$ space-bounded
 Turing machine that halts on every input.
 
+\key{Corollary 5.6.} For $S(n) \ge log(n)$,
+DSPACE($S(n)$) $\subseteq$ $\bigcup \{$DTIME($c^{S(n)}) | c \ge 1 \}$
+
 \key{Theorem 5.10.}  NTIME($T(n)$) $\in$ DSPACE($T(n)$).
 
 \key{Corollary 5.7.} NP $\in$ PSPACE.
@@ -85,7 +88,7 @@ Turing machine that halts on every input.
 \key{Theorem 5.11.} NTIME($T(n)$) $\in$ $\cup$\{DTIME($c^{T(n)}| c \ge 1$\}.
 
 \key{Corollary 5.8.} If $S$ is fully time-constructible and $S(n) \ge
-log(n)$, then NSPACE($S(n)$) $\subseteq$ \{DTIME($c^{S(n)}|c \ge 1$\}).
+log(n)$, then NSPACE($S(n)$) $\subseteq$ $\cup$ \{DTIME($c^{S(n)}|c \ge 1$\}).
 
 \key{Theorem 5.13 (Savitch).} If $S$ is fully space-constructible and $S(n) \ge
 log(n)$, then NSPACE($S(n)$) $\subseteq$ DSPACE($S^2(n)$).
@@ -104,6 +107,43 @@ log(n)$, then NSPACE($S(n)$) $\subseteq$ DSPACE($S^2(n)$).
 \text{NL} &\subseteq  \text{POLYLOGSPACE}.
 \end{align*}
 
+\subsubsection{Relations Between the Standard Classes}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.38\textwidth]{hierarchy}
+  \includegraphics[width=0.6\textwidth]{hierarchy2}
+\end{figure}
+
+\key{Savitch (NSPACE($S(n)$) $\subseteq$ DSPACE($S^2(n)$))}
+\begin{itemize}
+  \item NL $\subseteq$ POLYLOGSPACE
+  \item LBA $\subseteq$ PSPACE
+\end{itemize}
+
+\key{Space Hierarchy}
+\begin{itemize}
+  \item POLYLOGSPACE $\subseteq$ DLBA
+\end{itemize}
+
+\key{DSPACE($S(n)$) $\subseteq$ $\cup\{$DTIME($c^{S(n)})|c \ge 1\}$}
+\begin{itemize}
+  \item L $\subseteq$ P
+  \item DLBA $\subseteq$ E
+  \item PSPACE $\subseteq$ EXP
+\end{itemize}
+
+\key{NSPACE($S(n)$) $\subseteq$ $\cup\{$DTIME($c^{S(n)})|c \ge 1\}$.}
+\begin{itemize}
+  \item NL $\subseteq$ P 
+  \item LBA $\subseteq$ E
+\end{itemize}
+
+\key{NTIME($S(n)$) $\subseteq$ DSPACE($S(n)$)}
+\begin{itemize}
+  \item NP $\subseteq$ PSPACE
+\end{itemize}
+
+
 \subsection{Separation Results}
 
 \key{Theorem 5.15 (Space Hierarchy Theorem ).} Let $S(n)$ be fully space-
@@ -115,7 +155,7 @@ $\subset$ PSPACE.
 \begin{align*}
 \text{POLYLOGSPACE} &= \cup \{\text{DSPACE}((logn)^k ) | k \ge 1\}\\
 &\subseteq \text{DSPACE}(n^\frac{1}{2})\\
-&\subseteq \text{DLBA}.
+&\subset \text{DLBA}.
 \end{align*}
 
 \key{Corollary 5.14.} LBA $\subset$ PSPACE.

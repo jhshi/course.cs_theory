@@ -1,5 +1,7 @@
 \section{Undecidability}
 
+\subsection{Decision Problems}
+
 \subsection{Undecidable Problems}
 
 \key{Characteristic Function} 
@@ -7,6 +9,9 @@ $f_{S}(x) = \begin{cases}
   0 & \text{if } x \in S \\ 
   1 & \text{if } x \notin S
 \end{cases}$
+
+\key{Proposition 3.1.} A set $S$ is decidable if and only if its characteristic
+function is computable.
 
 \key{$w_M$} The word that encodes $M$.
 
@@ -51,6 +56,9 @@ $S=range(f)$ in which $f$ is a total computable function.
 
 \key{index set} Let $\mathscr{C}$ be any set of partial computable functions,
 then $P(\mathscr{C})=\{e|\phi_e \in \mathscr{C}\}$ is called index set.
+
+\key{Effectively enumerable} A collection of Turing machines is effectively
+enumerable if the corresponding set of G\"odel numbers is c.e.
 
 \key{Homework 3.3} $A=\{(e,j)|L(M_e) = L(M_j)\}$ is not decidable.\\
 Suppose by contradiction that $A$ is decidable, let $L(M_j)=\Sigma^*$, then
@@ -103,11 +111,13 @@ decidable subset.
 
 \key{$W_e=dom(\phi_e)$}
 
-\subsection{Complete Set}
+\subsection{Halting Problem, Reductions, and Complete Sets}
 
 \key{Diagonal Set} $K=\{x|\phi_x(x)\downarrow\}=\{x|U(x,x)\downarrow\}$=\{TM
 that accepts its own code.\}. Since $\lambda x.U(x,x)$ is partial computable,
-$K$ is c.e.. However, $K$ is not decidable, in particular, $\bar{K}$ is not
+$K$ is c.e.
+
+\key{Theorem 3.5.} $K$ is not decidable. In particular, $\overline{K}$ is not
 c.e.\\
 Suppose $\bar{K} = W_e = dom(\phi_e)$, then $e \in \bar{K} \Leftrightarrow
 \phi_e(e)\downarrow \Leftrightarrow e \in K$.
@@ -150,6 +160,8 @@ Then we have
   & \Leftrightarrow e' \in L(M_e')\\
   & \Leftrightarrow e' \in K
 \end{align*}
+
+Decidable sets are a proper subclass of the set of all c.e. sets
 
 \subsection{S-m-n Theorem}
 
@@ -219,11 +231,19 @@ variable.\\
 Suppose for contradiction that such $\exists f \forall n \phi_n \ne
 \phi_{f(n)}$, and $f$ is total.
 
+\key{Theorem 3.11.} For every partial computable function $\Psi(e, x)$, there is a
+value $e_0$ such that $\Psi(e_0,x) = \phi_{e_0}(x)$.
+
+Observe that there is a standard pattern to the proof of these results. First,
+we use the $s-m-n$ theorem or its corollary to obtain a total computable
+function $f$ with whatever property we find useful. Then, we use the recursion theorem or its
+corollary to select a fixed point of $f$.
+
 
 \subsection{Rice's Theorem}
 
 \key{Theorem 3.12.} An index set $P_{\mathscr{C}}$ is decidable if and only if
-$P_{\mathscr{C}} = 0$ or $P_{\mathscr{C}}= N$.\\
+$P_{\mathscr{C}} = \emptyset$ or $P_{\mathscr{C}}= N$.\\
 Suppose $P_{\mathscr{C}} \neq \emptyset$ and $P_{\mathscr{C}} \neq N$, let 
 $j \in P_{\mathscr{C}}$ and $k \notin P_{\mathscr{C}}$, define
 \begin{align*}
@@ -238,6 +258,12 @@ total, then $f$ has a fixed point $n$ such that $\phi_n = \phi_{f(n)}$. Since $n
 and $f(n)$ is the code for same partial functions, either they both belong to
 $P_{\mathscr{C}}$ or both belong to $\overline{P_{\mathscr{C}}}$, but 
 $x \in P_{\mathscr{C}} \Leftrightarrow f(x) \notin P_{\mathscr{C}}$.
+
+To use Rice's theorem to show that a set $A$ is not decidable, the set
+$A$ must be an index set. Therefore, if one program $e$ to compute $\phi_e$
+belongs to $A$, then every
+program $i$ such that $\phi_i = \phi_e$ must also belong to $A$. Thus,
+Rice's theorem only applies to machine-independent properties.
 
 \subsection{Turing Reductions and Oracle Turing Machines}
 

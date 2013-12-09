@@ -5,15 +5,18 @@
 \key{Turing Machine} $M=\langle
 Q,\Sigma,\Gamma,\delta,q_0,B,q_{accept},q_{reject}\rangle$
 
+\subsection{Turing Machine Concepts}
+
+\key{Definition 2.1.} Let $M$ be a Turing machine. The language accepted by $M$ is
+$L(M) = \{w \in \Sigma^* | M \text{ accepts } w\}$.
+
 \key{TM-acceptable} A language $L, L \subseteq \Sigma^*$, is
 Turing-machine-acceptable if there is a Turing machine
 that accepts L.
 
-\key{TM-decidable} A language L is Turing-machine-decidable if L is accepted by
-some
-Turing machine that halts on every input.
-
-\key{$L(M)$} $L(M)=\{w \in \Sigma^* | M \text{ accepts } w \}$.
+\key{Definition 2.2.} A language $L$ is Turing-machine-decidable if $L$ is accepted
+by some Turing machine that halts on every input, and a Turing machine that halts on
+every input and accepts $L$ is called a decider for $L$.
 
 \key{$M$ computes $\phi$} $M$ eventually enter an accepting configuration of
 $\phi(w_1,\ldots,w_n)q_{accept}$ iff.
@@ -30,6 +33,38 @@ $w_1,\ldots,w_n$. If $M$ computes a total computable function, $L(M)=\Sigma^*$.
 $\bar{L}$ are acceptable.\\
 Parallel simulation.
 
+
+\key{Proposition 2.1.} If $L$ is decidable, then $\overline{L}$ is decidable.
+
+\subsection{Variations of Turing Machines}
+
+\subsubsection{Multitape Turing Machines}
+
+\key{Definition 2.3.} Two Turing machines are equivalent if they accept the same
+language.
+
+\key{Theorem 2.1.} Every multitape Turing machine has an equivalent one-tape
+Turing machine.
+
+\key{Corollary 2.1.} For every multitape Turing machine there is a one-tape
+Turing machine that computes the same partial computable function.
+
+\key{Theorem 2.2.} A language $L$ is decidable if and only if both $L$ and
+$\overline{L}$ are acceptable.
+
+\subsubsection{Nondeterministic Turing Machines}
+
+\key{Theorem 2.3.} Every nondeterministic Turing machine has an equivalent
+deterministic Turing machine.
+
+\key{Corollary 2.2.} If every computation path of a nondeterministic Turing
+machine $N$ halts on every input word, then there is a deterministic Turing
+machine $M$ that decides the language $L(N)$.
+
+\subsection{Church's Thesis}
+
+\subsection{RAMs}
+
 \key{RAM}
 \begin{table}[H]
   \begin{tabular}{lll}
@@ -43,4 +78,7 @@ Parallel simulation.
   \end{tabular}
 \end{table}
 
+\key{Theorem 2.4.} Every RAM program can be effectively transformed into an
+equivalent one that uses only instructions of types 1, 2, 6, and 7.
 
+\subsubsection{Turing Machines for RAMS}
