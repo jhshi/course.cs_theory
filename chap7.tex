@@ -113,10 +113,16 @@ set $C \in$ NP-P such that $C \le^P_T B$ and $B \nleq^P_T C$.\\
 If P $\ne$ NP, then NP contains countably many distinct $\le^P_T$-degrees that form 
 an infinite descending hierarchy.
 
-\key{Corollary 7.7.} If P = NP, then NP-P is not effectively presentable.
+\key{Corollary 7.7.} If P = NP, then NP$-$P is not effectively presentable.
+
+\subsubsection{Composite Number and Graph Isomorphism}
 
 
 \subsection{The Polynomial Hierarchy}
+
+For any set $A$, let P$^A = \{B | B \le^P_T A\}$ and let NP$^A = \{B |
+B\le^{NP}_T A\}$. So P$^A$(NP$^A$) is the class of sets accepted deterministically
+(nondeterministically, respectively) in polynomial time relative to the set $A$.
 
 \key{Polynomial hierarchy} $\Sigma^P_0 = \Pi^P_0 = \Delta^P_0 =$ P
 \begin{align*}
@@ -130,3 +136,9 @@ an infinite descending hierarchy.
 
 \key{Proposition 7.5.} PH $\subseteq$ PSPACE, where PH= $\bigcup \{\Sigma^P_k|k \ge
 0\}$.
+
+\key{Theorem 7.10.} If for some $k \ge 1, \Sigma_k^ P = \Pi_k^P$ , then for all
+$j \ge k$, $\Sigma^P_j = \Pi^P_j = \Sigma_k^P$ .
+
+\key{Corollary 7.8.} $A \le^P_m B$ and $B \in \SigmaÎ_n^P$ implies $A \in
+\Sigma_n^P$.
