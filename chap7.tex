@@ -75,10 +75,31 @@ $n$\}.
 
 \key{Lemma 7.1.} If $f$ is fast, then $G[f] \in P$.
 
+
+\key{Theorem 7.6.} Let $A$ and $B$ be decidable sets and let $\mathscr{C}_1$ and
+$\mathscr{C}_2$ be classes of decidable sets with the following properties:
+\begin{enumerate}
+  \item $A \notin \mathscr{C}_1$ and $B \notin \mathscr{C}_2$;
+  \item $\mathscr{C}_1$ and $\mathscr{C}_2$ are effectively presentable; and
+  \item $\mathscr{C}_1$ and $\mathscr{C}_2$ are closed under finite variations.
+\end{enumerate}
+Then there exists a decidable set C such that
+\begin{enumerate}
+  \item $C \notin \mathscr{C}_1$ and $C \notin \mathscr{C}_2$, and
+  \item If $A \in$ P and $B \ne \emptyset$ and $B \ne \Sigma^*$, then $C
+    \le^P_m B$.
+\end{enumerate}
+
 \key{Lemma 7.2.} The class of all $\le^P_T$-complete sets for NP is effectively presentable.
 
 \key{Corollary 7.4.} If P $\ne$ NP, then there exists a set $C$ in NP-P
-that is not $\le^P_T$-complete for NP.
+that is not $\le^P_T$-complete for NP.\\
+Let $A=\emptyset$, $B=$SAT, and let $\mathscr{C}_1$ be collection of all
+$\le^P_T$-complete sets of NP, and $\mathscr{C}_2 =$P.
+\begin{enumerate}
+  \item $C \notin$ P and $C$ is not $\le^P_T$-complete for NP
+  \item $C \le^P_m$ SAT, so $C \in$ NP.
+\end{enumerate}
 
 \key{$\mathbf{X \oplus Y}$} $X \oplus Y = \{0x | x \in X\} \bigcup \{1x | x \in
 Y\}$.
@@ -89,7 +110,7 @@ $C_0 \nleq^P_T C_1$ and $C_1 \nleq^P_T C_0$ .
 
 \key{Corollary 7.6.} If P $\ne$ NP, then for every set $B \in$ NP-P, there is a 
 set $C \in$ NP-P such that $C \le^P_T B$ and $B \nleq^P_T C$.\\
-If P = NP, then NP contains countably many distinct $\le^P_T$-degrees that form 
+If P $\ne$ NP, then NP contains countably many distinct $\le^P_T$-degrees that form 
 an infinite descending hierarchy.
 
 \key{Corollary 7.7.} If P = NP, then NP-P is not effectively presentable.
