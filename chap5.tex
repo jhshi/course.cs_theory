@@ -85,20 +85,20 @@ DSPACE($S(n)$) $\subseteq$ $\bigcup \{$DTIME($c^{S(n)}) | c \ge 1 \}$
 
 \key{Corollary 5.7.} NP $\in$ PSPACE.
 
-\key{Theorem 5.11.} NTIME($T(n)$) $\in$ $\cup$\{DTIME($c^{T(n)}| c \ge 1$\}.
+\key{Theorem 5.11.} NTIME($T(n)$) $\in$ $\bigcup$\{DTIME($c^{T(n)}| c \ge 1$\}.
 
 \key{Corollary 5.8.} If $S$ is fully time-constructible and $S(n) \ge
-log(n)$, then NSPACE($S(n)$) $\subseteq$ $\cup$ \{DTIME($c^{S(n)}|c \ge 1$\}).
+log(n)$, then NSPACE($S(n)$) $\subseteq$ $\bigcup$ \{DTIME($c^{S(n)}|c \ge 1$\}).
 
 \key{Theorem 5.13 (Savitch).} If $S$ is fully space-constructible and $S(n) \ge
 log(n)$, then NSPACE($S(n)$) $\subseteq$ DSPACE($S^2(n)$).
 
 \key{Corollary 5.9.}
 \begin{align*}
-  \text{PSPACE} &= \cup \{\text{DSPACE}(n^c) | c \ge 1\}\\
-  &= \cup \{\text{NSPACE}(n^c) | c \ge 1\} \\
-  \text{POLYLOGSPACE} &= \cup\{\text{DSPACE}(log(n)^c) | c \ge 1\}\\
-  &= \cup \{\text{NSPACE}(log(n)^c) | c \ge 1\}
+  \text{PSPACE} &= \bigcup \{\text{DSPACE}(n^c) | c \ge 1\}\\
+  &= \bigcup \{\text{NSPACE}(n^c) | c \ge 1\} \\
+  \text{POLYLOGSPACE} &= \bigcup\{\text{DSPACE}(log(n)^c) | c \ge 1\}\\
+  &= \bigcup \{\text{NSPACE}(log(n)^c) | c \ge 1\}
 \end{align*}
 
 \key{Corollary 5.10.}
@@ -125,14 +125,14 @@ log(n)$, then NSPACE($S(n)$) $\subseteq$ DSPACE($S^2(n)$).
   \item POLYLOGSPACE $\subseteq$ DLBA
 \end{itemize}
 
-\key{DSPACE($S(n)$) $\subseteq$ $\cup\{$DTIME($c^{S(n)})|c \ge 1\}$}
+\key{DSPACE($S(n)$) $\subseteq$ $\bigcup\{$DTIME($c^{S(n)})|c \ge 1\}$}
 \begin{itemize}
   \item L $\subseteq$ P
   \item DLBA $\subseteq$ E
   \item PSPACE $\subseteq$ EXP
 \end{itemize}
 
-\key{NSPACE($S(n)$) $\subseteq$ $\cup\{$DTIME($c^{S(n)})|c \ge 1\}$.}
+\key{NSPACE($S(n)$) $\subseteq$ $\bigcup\{$DTIME($c^{S(n)})|c \ge 1\}$.}
 \begin{itemize}
   \item NL $\subseteq$ P 
   \item LBA $\subseteq$ E
@@ -153,7 +153,7 @@ $S'(n)$, if $S'(n) \in o(S(n))$, then $L \notin \text{DSPACE}(S(n))$.
 \key{Corollary 5.13.} $L \subset$ POLYLOGSPACE, POLYLOGSPACE $\subset$ DLBA, and DLBA
 $\subset$ PSPACE.
 \begin{align*}
-\text{POLYLOGSPACE} &= \cup \{\text{DSPACE}((logn)^k ) | k \ge 1\}\\
+\text{POLYLOGSPACE} &= \bigcup \{\text{DSPACE}((logn)^k ) | k \ge 1\}\\
 &\subseteq \text{DSPACE}(n^\frac{1}{2})\\
 &\subset \text{DLBA}.
 \end{align*}
