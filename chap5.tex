@@ -72,7 +72,7 @@ the number of steps in the shortest computation of N on $x$ is at most $cT(n)$.
 \subsection{Inclusion Relationships}
 
 \key{Theorem 5.8.} For every function $f$ ,
-DTIME($f$) $\in$ DSPACE($f$) and NTIME($f$) $\in$ NSPACE($f$)
+DTIME($f$) $\subseteq$ DSPACE($f$) and NTIME($f$) $\subseteq$ NSPACE($f$)
 
 \key{Theorem 5.9.} If $L$ is accepted by an $S(n)$ space-bounded Turing machine, 
 $S(n) \ge log n$, then $L$ is accepted by an $S(n)$ space-bounded
@@ -83,9 +83,9 @@ DSPACE($S(n)$) $\subseteq$ $\bigcup \{$DTIME($c^{S(n)}) | c \ge 1 \}$
 
 \key{Theorem 5.10.}  NTIME($T(n)$) $\in$ DSPACE($T(n)$).
 
-\key{Corollary 5.7.} NP $\in$ PSPACE.
+\key{Corollary 5.7.} NP $\subseteq$ PSPACE.
 
-\key{Theorem 5.11.} NTIME($T(n)$) $\in$ $\bigcup$\{DTIME($c^{T(n)}| c \ge 1$\}.
+\key{Theorem 5.11.} NTIME($T(n)$) $\subseteq$ $\bigcup$\{DTIME($c^{T(n)}| c \ge 1$\}.
 
 \key{Corollary 5.8.} If $S$ is fully time-constructible and $S(n) \ge
 log(n)$, then NSPACE($S(n)$) $\subseteq$ $\bigcup$ \{DTIME($c^{S(n)}|c \ge 1$\}).
