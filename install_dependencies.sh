@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-apt-get install texlive-full latexmk
+sudo apt-get install texlive-full latexmk
