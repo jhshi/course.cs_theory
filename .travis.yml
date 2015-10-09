@@ -5,4 +5,4 @@ install:
     - sudo apt-get install texlive-full latexmk
 
 script:
-    - make pdf
+    - make travis
