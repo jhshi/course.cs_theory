@@ -9,7 +9,7 @@ pdf:
 	latexmk -shell-escape -xelatex -bibtex -outdir=$(OUTDIR) -auxdir=$(OUTDIR) -f $(MAIN)
 
 travis:
-	latexmk -shell-escape -xelatex -bibtex -f $(MAIN)
+	pdflatex main
 
 clean:
 	latexmk -outdir=$(OUTDIR) -C
